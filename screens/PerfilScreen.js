@@ -1,7 +1,8 @@
-import React from "react";
-import { Avatar, Card } from "react-native-elements";
+import React, { useState } from "react";
+import { Avatar, Card, Header } from "react-native-elements";
 import { View, StyleSheet, Text } from "react-native";
 export default function PerfilScreen() {
+  const [result, setuResult] = useState({});
   return (
     <View
       style={{
@@ -20,7 +21,7 @@ export default function PerfilScreen() {
         }}
       />
       <Card
-        title="juanita"
+        title={result}
         containerStyle={{
           backgroundColor: "#ffffff",
           borderRadius: 10,

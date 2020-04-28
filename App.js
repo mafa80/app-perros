@@ -11,7 +11,14 @@ import BottomTabNavigator from "./navigation/BottomTabNavigator";
 import useLinking from "./navigation/useLinking";
 import Tutoriales from "./screens/tutoriales";
 import PerfilScreen from "./screens/PerfilScreen";
+import AgregarDogScreen from "./screens/AgregarDogScreen";
+import LoadingScreen from "./screens/LoadingScreen";
+import CalendarioScreen from "./screens/CalendarioScreen";
+import { firebaseConfig } from "./constants/ApiKeys";
+import * as firebase from "firebase";
 const Stack = createStackNavigator();
+
+firebase.initializeApp(firebaseConfig);
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = React.useState(false);
@@ -62,7 +69,18 @@ export default function App(props) {
               options={{ headerShown: false }}
             />
             <Stack.Screen name="Test" component={TestScreen} />
-            <Stack.Screen name="var" component={BottomTabNavigator} />
+            <Stack.Screen name="Loading" component={LoadingScreen} />
+            <Stack.Screen
+              name="var"
+              component={BottomTabNavigator}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="AgregarDogScreen"
+              component={AgregarDogScreen}
+            />
+            <Stack.Screen name="Calendario" component={CalendarioScreen} />
+
             <Stack.Screen name="Tutoriales" component={Tutoriales} />
             <Stack.Screen name="Perfil" component={PerfilScreen} />
           </Stack.Navigator>

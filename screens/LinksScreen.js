@@ -3,12 +3,12 @@ import * as WebBrowser from "expo-web-browser";
 import * as React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { RectButton, ScrollView } from "react-native-gesture-handler";
-import { Avatar, Icon, Button, Card } from "react-native-elements";
+import { Avatar, Icon, Button, Card, Header } from "react-native-elements";
 
 const list = [
   {
     name: "firulais",
-    imagen:
+    Imagen:
       "https://i.ibb.co/kqTrRSR/por-que-nos-parece-que-los-perros-sonrien-una-historia-de-30-000-anos.jpg",
     descripcion: "      Es jugueton ",
   },
@@ -19,12 +19,25 @@ const list = [
   },
 ];
 
-export default function LinksScreen() {
+export default function LinksScreen({ navigation }) {
   return (
     <ScrollView
       style={styles.container}
       contentContainerStyle={styles.contentContainer}
     >
+      <Header
+        centerComponent={{
+          text: "MIS PERROS",
+          style: {
+            color: "#2C2C2C",
+            fontSize: 20,
+            justifyContent: "flex-start",
+          },
+        }}
+        containerStyle={{
+          backgroundColor: "#E7E7E7",
+        }}
+      />
       <View>
         <Button
           containerStyle={{
@@ -36,6 +49,7 @@ export default function LinksScreen() {
           icon={<Icon name="add" />}
           iconRight
           buttonStyle={styles.buttonAdd}
+          onPress={() => navigation.navigate("AgregarDogScreen")}
         />
         {/* aqui va el map */}
 
@@ -49,7 +63,7 @@ export default function LinksScreen() {
             }}
           >
             <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Avatar size="large" source={l.imagen} rounded />
+              <Avatar size="large" source={{ uri: l.Imagen }} rounded />
               <View
                 style={{
                   flexDirection: "column",

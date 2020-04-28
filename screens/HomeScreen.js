@@ -1,5 +1,5 @@
 import * as WebBrowser from "expo-web-browser";
-import * as React from "react";
+import React, { useState } from "react";
 import {
   Image,
   Platform,
@@ -9,12 +9,22 @@ import {
   View,
 } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import { SideMenu, Icon, Button, Card } from "react-native-elements";
+import { SideMenu, Icon, Button, Card, Header } from "react-native-elements";
 import { MonoText } from "../components/StyledText";
 
-export default function HomeScreen() {
+export default function HomeScreen(username) {
+  const [user, setuser] = useState({});
   return (
     <ScrollView>
+      <Header
+        centerComponent={{
+          text: "INICIO",
+          style: { color: "#2C2C2C", fontSize: 20 },
+        }}
+        containerStyle={{
+          backgroundColor: "#E7E7E7",
+        }}
+      />
       <View style={{ flex: 1, backgroundColor: "#fffffff" }}>
         <View>
           <Card
@@ -169,3 +179,5 @@ const styles = StyleSheet.create({
     color: "#2e78b7",
   },
 });
+
+//xpath
