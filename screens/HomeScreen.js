@@ -9,9 +9,16 @@ import {
   View,
 } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import { SideMenu, Icon, Button, Card, Header } from "react-native-elements";
+import { SideMenu, Card, Header } from "react-native-elements";
 import { MonoText } from "../components/StyledText";
-
+import {
+  Container,
+  Content,
+  Footer,
+  FooterTab,
+  Icon,
+  Button,
+} from "native-base";
 export default function HomeScreen(username) {
   const [user, setuser] = useState({});
   return (
@@ -47,6 +54,26 @@ export default function HomeScreen(username) {
             />
           </Card>
         </View>
+        <Container>
+          <Header />
+          <Content />
+          <Footer>
+            <FooterTab>
+              <Button>
+                <Icon name="apps" />
+              </Button>
+              <Button>
+                <Icon name="camera" />
+              </Button>
+              <Button active>
+                <Icon active name="navigate" />
+              </Button>
+              <Button>
+                <Icon name="person" />
+              </Button>
+            </FooterTab>
+          </Footer>
+        </Container>
       </View>
     </ScrollView>
   );

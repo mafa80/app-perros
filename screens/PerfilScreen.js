@@ -1,37 +1,39 @@
-import React, { useState } from "react";
-import { Avatar, Card, Header } from "react-native-elements";
-import { View, StyleSheet, Text } from "react-native";
-export default function PerfilScreen() {
-  const [result, setuResult] = useState({});
+import * as React from "react";
+import { Avatar, Card, Button } from "react-native-elements";
+import { View, StyleSheet, Text, ScrollView } from "react-native";
+import { ListItem, Icon } from "react-native-elements";
+import { Input } from "react-native-elements";
+
+export default function PerfilScreen({ navigation }) {
   return (
-    <View
-      style={{
-        flexDirection: "column",
-        alignItems: "center",
-        height: "100%",
-      }}
-    >
-      <Avatar
-        rounded
-        size="xlarge"
-        showEditButton
-        source={{
-          uri:
-            "https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg",
-        }}
-      />
-      <Card
-        title={result}
-        containerStyle={{
-          backgroundColor: "#ffffff",
-          borderRadius: 10,
-        }}
-      >
-        <Text>nombre: Juanita</Text>
-        <Text>Perros: 2</Text>
-        <Text>Citas: 0</Text>
-      </Card>
-    </View>
+    <ScrollView>
+      <View>
+        <Card
+          containerStyle={{
+            backgroundColor: "#ffffff",
+            borderRadius: 0,
+            alignItems: "center",
+          }}
+        >
+          <View style={{ alignItems: "center", padding: 40 }}>
+            <Avatar
+              rounded
+              size="xlarge"
+              source={{
+                uri:
+                  "https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg",
+              }}
+            />
+          </View>
+
+          <View style={{ alignItems: "center", padding: 40 }}>
+            <Text>Nombre : Juanita</Text>
+            <Text>Perros: 2</Text>
+            <Text>Citas: 0</Text>
+          </View>
+        </Card>
+      </View>
+    </ScrollView>
   );
 }
 

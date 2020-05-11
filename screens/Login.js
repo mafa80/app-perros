@@ -21,7 +21,7 @@ export default class Login extends Component {
     this.props.navigation.navigate("Test");
   };
   Perfil = () => {
-    this.props.navigation.navigate("var");
+    this.props.navigation.navigate("Perros");
   };
   isUserEqual = (googleUser, firebaseUser) => {
     if (firebaseUser) {
@@ -126,7 +126,7 @@ export default class Login extends Component {
   };
   render() {
     return (
-      <View style={{ flex: 1, backgroundColor: "#B45F0450" }}>
+      <View style={{ flex: 1, backgroundColor: "#fffff" }}>
         <View style={styles.container}>
           <View>
             <SocialIcon
@@ -146,10 +146,10 @@ export default class Login extends Component {
             />
           </View>
           <View style={styles.containerRegister}>
-            <Text style={{ color: "white", fontWeight: "bold" }}>
-              Realizar Test
+            <Text style={{ color: "black", fontWeight: "bold" }}>
+              Si deceas adoptar un caniino realiza este test
               <Text
-                style={{ color: "red", fontWeight: "bold" }}
+                style={{ color: "blue", fontWeight: "bold" }}
                 onPress={this.Test}
               >
                 {" "}

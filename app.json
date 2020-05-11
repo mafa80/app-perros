@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "asd",
-    "slug": "asd",
+    "name": "perrap",
+    "slug": "perrap",
     "platforms": [
       "ios",
       "android",
@@ -24,6 +24,7 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "its a perrap"
   }
 }

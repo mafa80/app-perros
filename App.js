@@ -5,15 +5,20 @@ import * as Font from "expo-font";
 import { Ionicons } from "@expo/vector-icons";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import LoginScreen from "./screens/Login";
-import TestScreen from "./screens/Test";
-import BottomTabNavigator from "./navigation/BottomTabNavigator";
-import useLinking from "./navigation/useLinking";
-import Tutoriales from "./screens/tutoriales";
-import PerfilScreen from "./screens/PerfilScreen";
-import AgregarDogScreen from "./screens/AgregarDogScreen";
-import LoadingScreen from "./screens/LoadingScreen";
-import CalendarioScreen from "./screens/CalendarioScreen";
+import {
+  AgregarDogScreen,
+  CalendarioScreen,
+  HomeScreen,
+  LinksScreen,
+  LoadingScreen,
+  Login,
+  MapsScreen,
+  MenuScreen,
+  PerfilScreen,
+  TestScreen,
+  Tutoriales,
+} from "./screens/Screens";
+
 import { firebaseConfig } from "./constants/ApiKeys";
 import * as firebase from "firebase";
 const Stack = createStackNavigator();
@@ -24,7 +29,6 @@ export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = React.useState(false);
   const [initialNavigationState, setInitialNavigationState] = React.useState();
   const containerRef = React.useRef();
-  const { getInitialState } = useLinking(containerRef);
 
   // Load any resources or data that we need prior to rendering the app
   React.useEffect(() => {
@@ -65,14 +69,28 @@ export default function App(props) {
           <Stack.Navigator>
             <Stack.Screen
               name="Login"
-              component={LoginScreen}
+              component={Login}
               options={{ headerShown: false }}
             />
             <Stack.Screen name="Test" component={TestScreen} />
-            <Stack.Screen name="Loading" component={LoadingScreen} />
             <Stack.Screen
-              name="var"
-              component={BottomTabNavigator}
+              name="Perros"
+              component={LinksScreen}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Loading"
+              component={LoadingScreen}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Mapas"
+              component={MapsScreen}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Menu"
+              component={MenuScreen}
               options={{ headerShown: false }}
             />
             <Stack.Screen

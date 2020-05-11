@@ -15,9 +15,6 @@ export default function AgregarDogScreen({ navigation }) {
   return (
     <ScrollView>
       <View>
-        <View style={{ alignItems: "center" }}>
-          <Avatar rounded size="xlarge" showEditButton />
-        </View>
         <Card
           title="Nuevo perro"
           containerStyle={{
@@ -25,7 +22,12 @@ export default function AgregarDogScreen({ navigation }) {
             borderRadius: 0,
           }}
         >
+          <View style={{ alignItems: "center", padding: 40 }}>
+            <Avatar rounded size="xlarge" showEditButton />
+          </View>
+
           <Input
+            style={{ padding: 40 }}
             placeholder="Nombre"
             onChangeText={(vnom) => setText(vnom)}
             defaultValue={vnom}
@@ -34,13 +36,13 @@ export default function AgregarDogScreen({ navigation }) {
 
           <Input
             placeholder="Raza"
-            onChangeText={(vraza) => setText(vraza)}
+            onChangeText={(vraza) => setText1(vraza)}
             defaultValue={vraza}
             leftIcon={<Icon name="pets" size={15} color="black" />}
           />
           <Input
             placeholder="Edad"
-            onChangeText={(vedad) => setText(vedad)}
+            onChangeText={(vedad) => setText2(vedad)}
             defaultValue={vedad}
             leftIcon={<Icon name="pets" size={15} color="black" />}
           />
@@ -48,6 +50,7 @@ export default function AgregarDogScreen({ navigation }) {
             containerStyle={{
               alignItems: "center",
               justifyContent: "flex-end",
+              padding: 30,
             }}
             title="Guardar"
             type="outline"
