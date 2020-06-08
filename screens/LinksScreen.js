@@ -42,6 +42,7 @@ export default function LinksScreen({ navigation }) {
   } else {
     console.log("que onda rza  enn else");
   }
+
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -94,8 +95,10 @@ export default function LinksScreen({ navigation }) {
                   <Button
                     containerStyle={{ position: "absolute", right: 5, top: 5 }}
                     buttonStyle={styles.buttonEdit}
-                    icon={<Icon name="create" />}
-                  />
+                    onPress={() => navigation.navigate("Carnet")}
+                  >
+                    <Icon name="map" />
+                  </Button>
                 </View>
               </Card>
             ))}
@@ -104,17 +107,17 @@ export default function LinksScreen({ navigation }) {
       </ScrollView>
       <Footer>
         <FooterTab>
-          <Button active>
+          <Button active onPress={() => navigation.navigate("Perros")}>
             <Icon name="ios-paw" />
             <Text>Mis perros</Text>
           </Button>
-          <Button>
+          <Button onPress={() => navigation.navigate("Mapas")}>
             <Icon name="map" />
             <Text>Veterinarios</Text>
           </Button>
-          <Button>
+          <Button onPress={() => navigation.navigate("Menu")}>
             <Icon name="menu" />
-            <Text>Menu</Text>
+            <Text>Menú</Text>
           </Button>
         </FooterTab>
       </Footer>

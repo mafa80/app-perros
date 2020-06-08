@@ -3,12 +3,29 @@ import MapView from "react-native-maps";
 import { Header } from "react-native-elements";
 import { StyleSheet, Text, View, Dimensions } from "react-native";
 import * as Permissions from "expo-permissions";
+import {
+  Container,
+  Content,
+  Footer,
+  FooterTab,
+  Icon,
+  Button,
+} from "native-base";
+
 export default class MapsScreen extends React.Component {
   state = {
     latitude: null,
     longitude: null,
   };
-
+  Menu = () => {
+    this.props.navigation.navigate("Menu");
+  };
+  Mapas = () => {
+    this.props.navigation.navigate("Mapas");
+  };
+  Perros = () => {
+    this.props.navigation.navigate("Perros");
+  };
   async componentDidMount() {
     const { status } = await Permissions.getAsync(Permissions.LOCATION);
 
@@ -50,6 +67,23 @@ export default class MapsScreen extends React.Component {
     return (
       <View style={styles.container}>
         <Text> no tengo acceso aa tu ubicacioon </Text>
+        <Content />
+        <Footer>
+          <FooterTab>
+            <Button onPress={this.Perros}>
+              <Icon name="ios-paw" />
+              <Text>Mis perros</Text>
+            </Button>
+            <Button onPress={this.Mapas} active>
+              <Icon name="map" />
+              <Text>Veterinarios</Text>
+            </Button>
+            <Button onPress={this.Menu}>
+              <Icon name="menu" />
+              <Text>Menu</Text>
+            </Button>
+          </FooterTab>
+        </Footer>
       </View>
     );
   }
@@ -61,9 +95,5 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-  },
-  mapStyle: {
-    width: Dimensions.get("window").width,
-    height: Dimensions.get("window").height,
   },
 });

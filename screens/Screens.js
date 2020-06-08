@@ -10,3 +10,4 @@ export { default as MenuScreen } from "./Menu";
 export { default as PerfilScreen } from "./PerfilScreen";
 export { default as TestScreen } from "./Test";
 export { default as Tutoriales } from "./tutoriales";
+export { default as CarnetScreen } from "./CarnetScreen";

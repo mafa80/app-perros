@@ -3,6 +3,7 @@ import { Avatar, Card, Button } from "react-native-elements";
 import { View, StyleSheet, Text, ScrollView } from "react-native";
 import { ListItem, Icon } from "react-native-elements";
 import { Input } from "react-native-elements";
+import { Footer, FooterTab } from "native-base";
 
 export default function AgregarDogScreen({ navigation }) {
   const [vnom, setText] = React.useState("");
@@ -59,6 +60,22 @@ export default function AgregarDogScreen({ navigation }) {
             buttonStyle={styles.buttonAdd}
           />
         </Card>
+        <Footer>
+          <FooterTab>
+            <Button onPress={() => navigation.navigate("Perros")}>
+              <Icon name="ios-paw" />
+              <Text>Mis perros</Text>
+            </Button>
+            <Button onPress={() => navigation.navigate("Mapas")}>
+              <Icon name="map" />
+              <Text>Veterinarios</Text>
+            </Button>
+            <Button onPress={() => navigation.navigate("Menu")} active>
+              <Icon name="menu" />
+              <Text>Menu</Text>
+            </Button>
+          </FooterTab>
+        </Footer>
       </View>
     </ScrollView>
   );

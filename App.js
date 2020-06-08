@@ -8,7 +8,6 @@ import { createStackNavigator } from "@react-navigation/stack";
 import {
   AgregarDogScreen,
   CalendarioScreen,
-  HomeScreen,
   LinksScreen,
   LoadingScreen,
   Login,
@@ -17,6 +16,7 @@ import {
   PerfilScreen,
   TestScreen,
   Tutoriales,
+  CarnetScreen,
 } from "./screens/Screens";
 
 import { firebaseConfig } from "./constants/ApiKeys";
@@ -24,7 +24,9 @@ import * as firebase from "firebase";
 const Stack = createStackNavigator();
 
 firebase.initializeApp(firebaseConfig);
-
+if (!firebase.apps.length) {
+  firebase.initializeApp(config);
+}
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = React.useState(false);
   const [initialNavigationState, setInitialNavigationState] = React.useState();
@@ -86,6 +88,11 @@ export default function App(props) {
             <Stack.Screen
               name="Mapas"
               component={MapsScreen}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Carnet"
+              component={CarnetScreen}
               options={{ headerShown: false }}
             />
             <Stack.Screen

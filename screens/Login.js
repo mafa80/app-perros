@@ -66,6 +66,7 @@ export default class Login extends Component {
                     .database()
                     .ref("/users/" + result.user.uid)
                     .set({
+                      id: result.user.uid,
                       gmail: result.user.email,
                       profile_picture:
                         result.additionalUserInfo.profile.picture,

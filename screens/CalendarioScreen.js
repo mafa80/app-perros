@@ -1,5 +1,17 @@
 import React, { Component } from "react";
-import { Container, Header, Content, DatePicker, Text } from "native-base";
+import {
+  Container,
+  Header,
+  Content,
+  DatePicker,
+  Footer,
+  FooterTab,
+  Icon,
+  Button,
+} from "native-base";
+
+import { Text } from "react-native";
+
 export default class CalendarioScreen extends Component {
   constructor(props) {
     super(props);
@@ -12,7 +24,6 @@ export default class CalendarioScreen extends Component {
   render() {
     return (
       <Container>
-        <Header />
         <Content>
           <DatePicker
             defaultDate={new Date(2018, 4, 4)}
@@ -23,14 +34,34 @@ export default class CalendarioScreen extends Component {
             modalTransparent={false}
             animationType={"fade"}
             androidMode={"default"}
-            placeHolderText="Select date"
+            placeHolderText="Selecciona Fecha"
             textStyle={{ color: "green" }}
             placeHolderTextStyle={{ color: "#d3d3d3" }}
             onDateChange={this.setDate}
             disabled={false}
           />
-          <Text>Date: {this.state.chosenDate.toString().substr(4, 12)}</Text>
+
+          <Text>Fecha: {this.state.chosenDate.toString().substr(4, 12)}</Text>
         </Content>
+        <Footer>
+          <FooterTab>
+            <Button
+              active
+              onPress={() => this.props.navigation.navigate("Perros")}
+            >
+              <Icon name="ios-paw" />
+              <Text>Mis perros</Text>
+            </Button>
+            <Button onPress={() => this.props.navigation.navigate("Mapas")}>
+              <Icon name="map" />
+              <Text>Veterinarios</Text>
+            </Button>
+            <Button onPress={() => this.props.navigation.navigate("Menu")}>
+              <Icon name="menu" />
+              <Text>Menu</Text>
+            </Button>
+          </FooterTab>
+        </Footer>
       </Container>
     );
   }
